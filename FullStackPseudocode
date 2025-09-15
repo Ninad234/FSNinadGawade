@@ -1,7 +1,7 @@
 Backend (Node.js + Express + MongoDB) 
 :- 
 
-// I will create a Student schema in MongoDB like this:
+I will create a Student schema in MongoDB like this:
 
 Student {
   id: unique identifier (For unique indentificcation of each student)
@@ -12,24 +12,24 @@ Student {
   createdAt: timestamp
 }
 
-// To ensure usernames are unique and anonymous, I will:
+To ensure usernames are unique and anonymous, I will:
 function generateUniqueUsername():
   do:
     username = "Student" + random 4-digit number (I will generate random 4 digit number by Math.random for generating random number and enclose it to Math.floor for making it to an suitable numbers only )
   while username exists in DB (checking whether student exits in db or not)
   return username
 
-// When a student sends their route, I will:
-// 1. I will frst generate the unique username
-// 2. Calculate route waypoints using Google Maps Directions API
-// 3. Save this route and user info to the Database that is mongodb 
+When a student sends their route, I will:
+ 1. I will frst generate the unique username
+ 2. Calculate route waypoints using Google Maps Directions API
+ 3. Save this route and user info to the Database that is mongodb 
 
-// I want to find routes that are close to each other or that cross or share some parts:
-// I will compare the new route waypoints with those already in the mongodb. 
-// If any points are within 0.5 km radius and total overlap crosses a threshold value,
-// then I will consider them matched.
+ I want to find routes that are close to each other or that cross or share some parts:
+ I will compare the new route waypoints with those already in the mongodb. 
+ If any points are within 0.5 km radius and total overlap crosses a threshold value,
+ then I will consider them matched.
 
-// API endpoint to add student route:
+API endpoint to add student route:
 POST /api/routes
   Receive startLocation, destinationLocation
   Generate unique username
@@ -39,7 +39,7 @@ POST /api/routes
     if routes overlap, add to matchedStudents list
   Return { username, matchedStudents }
 
-// For chatting, I will use WebSocket (Socket.IO):
+For chatting, I will use WebSocket (Socket.IO):
 On client connect:
   Authenticate username
 On "send_message":
@@ -50,31 +50,31 @@ On "get_messages":
   Send to client
 
 Frontend (React + Google Maps + Socket.IO client)
-// On the frontend, I will do the following:
+On the frontend, I will do the following:
 
-// 1. Create inputs for start and destination addresses
-// 2. Use Google Maps feature that is Geocoder to convert addresses to lat/lng
-// 3. Send start and destination coords to backend /api/routes
+1. Create inputs for start and destination addresses
+2. Use Google Maps feature that is Geocoder to convert addresses to lat/lng
+3. Send start and destination coords to backend API Routes
 
-// On receiving response:
-  // Save assigned anonymous username
-  // Display the route on the map using DirectionsRenderer
-  // Display markers for matched students (anonymous usernames at their start locations)
+On receiving response:
+  Save assigned anonymous username
+  Display the route on the map using DirectionsRenderer
+  Display markers for matched students (anonymous usernames at their start locations)
 
-// When user clicks on a matched student's marker:
-  // Open a chat window
-  // Connect to WebSocket and fetch chat messages
-  // Allow real-time sending and receiving of messages anonymously
+When user clicks on a matched student's marker:
+  Open a chat window
+  Connect to WebSocket and fetch chat messages
+  Allow real-time sending and receiving of messages anonymously
 
-// I will manage state for:
-// - User's start and destination inputs
-// - User's anonymous username
-// - Matched students list
-// - Chat window open state and messages
+I will manage state for:
+- User's start and destination inputs
+- User's anonymous username
+- Matched students list
+- Chat window open state and messages
 
-// The map will show:
-// - User's route
-// - Markers for matched students
+The map will show:
+- User's route
+- Markers for matched students
 
 Route Matching Logic (Backend)
 function routesOverlap(route1, route2):
