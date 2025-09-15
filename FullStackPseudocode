@@ -20,13 +20,13 @@ function generateUniqueUsername():
   return username
 
 // When a student sends their route, I will:
-// 1. Generate a unique username
-// 2. Calculate route waypoints using Google Maps Directions API or similar
-// 3. Save this route and user info to the DB
+// 1. I will frst generate the unique username
+// 2. Calculate route waypoints using Google Maps Directions API
+// 3. Save this route and user info to the Database that is mongodb 
 
-// I need to match routes by proximity or overlap:
-// I will compare the new route waypoints with those already in the DB
-// If any points are within 0.5 km radius and total overlap crosses a threshold,
+// I want to find routes that are close to each other or that cross or share some parts:
+// I will compare the new route waypoints with those already in the mongodb. 
+// If any points are within 0.5 km radius and total overlap crosses a threshold value,
 // then I will consider them matched.
 
 // API endpoint to add student route:
@@ -53,7 +53,7 @@ Frontend (React + Google Maps + Socket.IO client)
 // On the frontend, I will do the following:
 
 // 1. Create inputs for start and destination addresses
-// 2. Use Google Maps Geocoder to convert addresses to lat/lng
+// 2. Use Google Maps feature that is Geocoder to convert addresses to lat/lng
 // 3. Send start and destination coords to backend /api/routes
 
 // On receiving response:
