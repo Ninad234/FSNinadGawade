@@ -1,6 +1,6 @@
-Here is how I plan to solve the Student Commute Optimizer project:
-Backend (Node.js + Express + MongoDB) 
-:- 
+Here is how I plan to solve the Student Commute Optimizer project:-
+Backend (Node.js + Express + MongoDB + Websocket.io)
+Frontend(React.js+Tailwind css) 
 
 I will create a Student schema in MongoDB like this:
 
