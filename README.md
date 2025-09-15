@@ -1,3 +1,4 @@
+Here is how I plan to solve the Student Commute Optimizer project:
 Backend (Node.js + Express + MongoDB) 
 :- 
 
